@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className="title">Martin List Syberg </h1>
       <ul className="navbar">
         <li>
-          <a href="home">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
           <a href="oldprojects">Old Projects</a>
