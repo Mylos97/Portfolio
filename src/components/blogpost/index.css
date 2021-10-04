@@ -1,0 +1,34 @@
+.blog-post {
+    display: grid;
+    place-items: center;
+}
+
+.blog-post p{
+    width: 60%;
+    line-height: 28px;
+    font-size: 20px;
+    margin-bottom: 4rem;
+    text-align: left;
+}
+
+.blog-post h2 {
+    font-size: 56px;
+}
+
+.blog-post img {
+    height: auto; 
+    width: auto; 
+    max-width: 600px; 
+    max-height: 600px;
+}
+
+.edit-bar {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.edit-bar li{
+    float: left;
+    list-style-type: none;
+    margin-right: 1rem;
+}

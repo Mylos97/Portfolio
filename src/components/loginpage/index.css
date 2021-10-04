@@ -1,0 +1,36 @@
+.login {
+    display: grid;
+    place-items: center;
+}
+
+.login-form {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+}
+
+.login-form h1{
+    margin-bottom: 3rem;
+}
+
+.login-form input {
+    font-family: 'Oswald', sans-serif;
+    padding: 0.5rem 1rem;
+}
+
+.login-form button {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    margin-bottom: 8rem;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-form button:hover {
+    transform: scale(1.1);
+}
