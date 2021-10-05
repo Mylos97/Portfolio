@@ -1,0 +1,50 @@
+.createpost {
+    display: grid;
+    place-items: center;
+    font-size: 0;
+}
+
+.createpost-form {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+.createpost h1{
+    font-size: 48px;
+    margin-bottom: 3rem;
+}
+
+.createpost input {
+    font-family: 'Lato', sans-serif;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.createpost button {
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    margin-bottom: 8rem;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: all 0.3s ease-in-out;
+}
+
+.createpost button:hover {
+    transform: scale(1.1);
+}
+
+#datepicker{
+    width:204px;
+}
+
+#textarea{
+    font-size: 16;
+    resize: none;
+}

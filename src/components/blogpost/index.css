@@ -1,6 +1,7 @@
 .blog-post {
     display: grid;
     place-items: center;
+    font-family: 'Lato', sans-serif;
 }
 
 .blog-post p{

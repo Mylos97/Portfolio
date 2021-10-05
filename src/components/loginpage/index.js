@@ -72,13 +72,13 @@ const LoginPage = () => {
         </form>
       ) : [
         (showCreatePost ? (
-          <div key='0'>
-            <button onClick={() => setShowCreatePost(!showCreatePost)}>ShowCreatepost</button>
+          <div key='0' className='login-form'>
+            <button onClick={() => setShowCreatePost(!showCreatePost)}>Show Blogposts</button>
             <CreatePost/>
           </div>
         ) : (
-        <div className="blog-posts" key='1'>
-          <button onClick={() => setShowCreatePost(!showCreatePost)}>ShowCreatepost</button>
+        <div className="login-form" key='1'>
+          <button onClick={() => setShowCreatePost(!showCreatePost)}>Createpost</button>
           {blogPosts && 
           blogPosts.map((b) => {
             return <BlogPost key={b._id} title={b.title} date={b.date} content={b.content} adminLoggedIn={loggedIn} blogId={b._id}/>
