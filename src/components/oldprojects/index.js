@@ -17,7 +17,7 @@ const ITEMS_QUERY = gql`
 `;
 
 const OldProjects = () => {
-  let { data, loading } = useQuery(ITEMS_QUERY);
+  let { data } = useQuery(ITEMS_QUERY);
   var queryBlogPosts = data ? data.allBlogPosts : null;
   const blogPosts = queryBlogPosts
     ? queryBlogPosts.data.slice().sort(function (a, b) {
@@ -26,9 +26,7 @@ const OldProjects = () => {
     : null;
   return (
     <div>
-      {loading ? (
-        <p>Looooading</p>
-      ) : (
+      {blogPosts &&
         blogPosts.map((b) => {
           return (
             <BlogPost
@@ -39,7 +37,7 @@ const OldProjects = () => {
             />
           );
         })
-      )}
+      }
     </div>
   );
 };
