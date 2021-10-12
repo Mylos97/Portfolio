@@ -2,6 +2,9 @@ import React from "react";
 import BlogPost from "../blogpost";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
+import {AdvancedImage} from '@cloudinary/react';
+import {Cloudinary} from "@cloudinary/url-gen";
+
 
 const ITEMS_QUERY = gql`
   {
@@ -24,9 +27,19 @@ const Home = () => {
         return new Date(b.date) - new Date(a.date);
       })
     : null;
+  
+    let cld = new Cloudinary({
+      cloud: {
+        cloudName:'dtfybdxar'
+      }
+    })
+
+    const myImage = cld.image('sample')
+    
 
   return (
-    <div className="home">
+    <div className="home">  
+      <AdvancedImage cldImg={myImage}/>
       {blogPosts && (
         <BlogPost
           key={blogPosts[0]._id}
