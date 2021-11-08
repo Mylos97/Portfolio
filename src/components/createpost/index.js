@@ -12,6 +12,7 @@ const CREATE_BLOG_POST = gql`
       title
       date
       content
+      images
     }
   }
 `;
@@ -22,38 +23,42 @@ const CreatePost = () => {
   const [content, setContent] = useState("");
   const [images, setImages] = useState(null);
   const [createBlogPost] = useMutation(CREATE_BLOG_POST);
+  const [uploadedImages, setUploadedImages] = useState(false)
+  const imagesNames = []
 
   const createPost = (e) => {
     e.preventDefault();
-    if (!validateBlogPost(title, date, content)) return;
+    if (!validateBlogPost(title, date, content) || !uploadedImages) return;
     createBlogPost({
-      variables: { data: { title: title, date: date, content: content } },
+      variables: { data: { title: title, date: date, content: content, images: imagesNames} },
     });
+    setUploadedImages(false)
+    imagesNames.splice(0, imagesNames.length)
   };
 
-  const uploadImages = (e) => {
+  const upload = (e) => {
     e.preventDefault()
-    let url = 'https://api.cloudinary.com/v1_1/dtfybdxar/image/upload'
-    const formData = new FormData()
-    for(let i = 0 ; i < images.length ; i ++){
-      let file = images[i]
-      formData.append('file', file)
-      formData.append('upload_preset', 'ayth8cj4')
+    const url = 'https://secret-spire-88724.herokuapp.com/upload'
 
+    for (let i = 0 ; i < images.length ; i++){
+      let file = images[i]
+      const formData = new FormData()
+      formData.append('image', file)
       fetch(url, {
         method:'POST',
-        body:formData
-      }).then((res) => {
-        console.log(res.text())
-      }).catch((e) => {
-        console.log(e)
+        body:formData,
+      }).then((res) =>{
+        return res.json()
+      }).then((data) => {
+        imagesNames.push(data.url)
+      }).catch((err) => {
+        console.log(err)
       })
-
     }
 
+    setUploadedImages(true)
   }
 
-  console.log(images)
   return (
     <div className="createpost">
       <form onSubmit={createPost} className={"createpost-form"}>
@@ -90,13 +95,10 @@ const CreatePost = () => {
           multiple={true}
         ></input>
         <br></br>
-        <button onClick={(e) => uploadImages(e)}>Upload Images</button>
+        <button onClick={(e) => upload(e)}>Upload Images</button>
         <br></br>
         <button type="submit">Create Post!</button>
       </form>
-      {images && 
-        <img src={images[0]} alt=''></img>
-      }
     </div>
   );
 };

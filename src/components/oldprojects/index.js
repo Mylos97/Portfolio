@@ -11,6 +11,7 @@ const ITEMS_QUERY = gql`
         title
         date
         content
+        images
       }
     }
   }
@@ -34,6 +35,7 @@ const OldProjects = () => {
               title={b.title}
               date={b.date}
               content={b.content}
+              imgs={b.images}
             />
           );
         })

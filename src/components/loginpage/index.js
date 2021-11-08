@@ -13,6 +13,7 @@ const ITEMS_QUERY = gql`
         title
         date
         content
+        images
       }
     }
   }
@@ -81,7 +82,7 @@ const LoginPage = () => {
           <button onClick={() => setShowCreatePost(!showCreatePost)}>Createpost</button>
           {blogPosts && 
           blogPosts.map((b) => {
-            return <BlogPost key={b._id} title={b.title} date={b.date} content={b.content} adminLoggedIn={loggedIn} blogId={b._id}/>
+            return <BlogPost key={b._id} title={b.title} date={b.date} content={b.content} adminLoggedIn={loggedIn} blogId={b._id} imgs={b.images}/>
           })
           }
 

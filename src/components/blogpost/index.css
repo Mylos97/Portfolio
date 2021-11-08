@@ -5,9 +5,9 @@
 }
 
 .blog-post p{
-    width: 60%;
+    width: 70%;
     line-height: 28px;
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 4rem;
     text-align: left;
 }
@@ -16,12 +16,6 @@
     font-size: 56px;
 }
 
-.blog-post img {
-    height: auto; 
-    width: auto; 
-    max-width: 600px; 
-    max-height: 600px;
-}
 
 .edit-bar {
     margin-top: 1rem;
@@ -32,4 +26,23 @@
     float: left;
     list-style-type: none;
     margin-right: 1rem;
+    
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.images li {
+    height: 40rem;
+    flex-grow: 1;
+    list-style-type: none;
+}
+  
+.images img {
+    max-height: 60%;
+    min-width: 100%;
+    object-fit: fill;
+    vertical-align: bottom;
 }
