@@ -29,7 +29,6 @@ const BlogPost = ({ blogId, title, date, content, imgs, adminLoggedIn }) => {
   const updateBlogPost = () => {
     if (!validateBlogPost(blogTitle, blogDate, blogContent)) return;
     setEditable(false);
-    let deleteImg = deleteImages();
     submitEditBLogPost({
       variables: {
         id: blogId,
@@ -125,15 +124,15 @@ const BlogPost = ({ blogId, title, date, content, imgs, adminLoggedIn }) => {
         {blogContent}
       </p>
       {images && (
-        <ul className="images">
+        <>
           {images.map((url, index) => {
             return (
-              <li key={index}>
+              <div key={index} style={{ width :"55%", display: "flex", justifyContent: "center"}} >
                 <img src={url} alt="Cannot load"></img>
-              </li>
+              </div>
             );
           })}
-        </ul>
+          </>
       )}
       {adminLoggedIn && (
         <div className="edit-btns">

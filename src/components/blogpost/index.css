@@ -2,12 +2,13 @@
     display: grid;
     place-items: center;
     font-family: 'Lato', sans-serif;
+    z-index: 1;
 }
 
 .blog-post p{
     width: 70%;
-    line-height: 28px;
-    font-size: 22px;
+    line-height: 36px;
+    font-size: 24px;
     margin-bottom: 4rem;
     text-align: left;
 }
@@ -40,9 +41,16 @@
     list-style-type: none;
 }
   
-.images img {
-    max-height: 60%;
-    min-width: 100%;
-    object-fit: fill;
-    vertical-align: bottom;
+.blog-post img {
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+@media (max-width: 800px) {
+    .blog-post {
+        margin-top: 4rem;
+    }
 }
