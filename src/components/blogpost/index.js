@@ -42,31 +42,6 @@ const BlogPost = ({ blogId, title, date, content, imgs, adminLoggedIn }) => {
     });
   };
 
-  async function deleteImages() {
-    const url = "http://localhost:5000/delete";
-    let promise = new Promise((resolve, reject) => {
-      for (let i = 0; i < images.length; i++) {
-        let tmpImage = images[i];
-        const formData = new FormData();
-        formData.append("image", tmpImage);
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => {
-            console.log(res);
-          })
-          .then(() => {
-            if (i === images.length - 1) resolve("Removed the correct images");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    });
-    return promise;
-  }
-
   async function changeUploaded(e) {
     e.preventDefault();
     let imagesNames = [];
